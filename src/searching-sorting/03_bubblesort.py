@@ -1,3 +1,7 @@
+'''
+The bubble sort makes multiple passes through a list. It compares adjacent items and exchanges those that are out of order. Each pass through the list places the next largest value in its proper place. In essence, each item “bubbles” up to the location where it belongs.
+'''
+
 def bubble_sort(arr):
     # For every element (arranged backwards)
     for n in range(len(arr)-1,0,-1):

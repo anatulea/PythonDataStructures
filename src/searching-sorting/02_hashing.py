@@ -8,7 +8,7 @@ class HashTable(object):
         self.data = [None] * self.size
         
     def put(self,key,data):
-        #Note, we'll only use integer keys for ease of use with the Hash Function
+        # Note, we'll only use integer keys for ease of use with the Hash Function
         
         # Get the hash value
         hashvalue = self.hashfunction(key,len(self.slots))
@@ -18,15 +18,13 @@ class HashTable(object):
             self.slots[hashvalue] = key
             self.data[hashvalue] = data
         
-        else:
-            
+        else:     
             # If key already exists, replace old value
             if self.slots[hashvalue] == key:
                 self.data[hashvalue] = data  
             
             # Otherwise, find the next available slot
             else:
-                
                 nextslot = self.rehash(hashvalue,len(self.slots))
                 
                 # Get to the next slot
@@ -72,7 +70,6 @@ class HashTable(object):
             else:
                 position=self.rehash(position,len(self.slots))
                 if position == startslot:
-                    
                     stop = True
         return data
 
