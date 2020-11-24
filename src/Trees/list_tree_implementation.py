@@ -1,8 +1,8 @@
 '''
 Below is a representation of a Tree using a list of lists.
 '''
-def BinaryTree(r):
-    return [r, [], []]
+def BinaryTree(root_node):
+    return [root_node, [], []]
 
 def insertLeft(root,newBranch):
     t = root.pop(1)
