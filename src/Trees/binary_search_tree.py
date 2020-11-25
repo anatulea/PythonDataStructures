@@ -56,7 +56,7 @@ class BinarySearchTree:
         if self.root:
             self._put(key, value,  self.root)
         else:
-            self.root = TreeNode(key, val)
+            self.root = TreeNode(key, value)
         self.size +=1
     
     def _put(self, key, val, currentNode):
@@ -126,11 +126,11 @@ class BinarySearchTree:
                 self.parent.rightChild = None
         elif self.hasAnyChildren():
             if self.hasLeftChild():
-              if self.isLeftChild():
+                if self.isLeftChild():
                     
                     self.parent.leftChild = self.leftChild
                 else:
-                    
+                
                     self.parent.rightChild = self.leftChild
                     self.leftChild.parent = self.parent
         else:
@@ -209,5 +209,31 @@ class BinarySearchTree:
                                     currentNode.rightChild.leftChild,
                                     currentNode.rightChild.rightChild)
 
+# in order iterator of a binary tree
+    def __iter__(self):
+        if self:
+            if self.hasLeftChild():
+                for elem in self.leftChild:
+                    yield elem
+            yield self.key
+
+            if self.hasRightChild():
+                for elem in self.rightChild:
+                    yield elem
+
+mytree = BinarySearchTree()
+mytree.put(1,1)
+mytree.put(2,265)
+mytree.put(3,3)
+mytree.put(4,4)
+mytree.put(5,5)
+mytree.put(6,66)
 
 
+# mytree[3]=33
+# mytree[4]="blue"
+# mytree[6]="yellow"
+# mytree[2]="at"
+
+print(mytree[6])
+print(mytree[2])
